@@ -25,7 +25,9 @@
     "prettier": "^2.0.5",
     "typescript": "^3.9.7"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
