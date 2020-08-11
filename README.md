@@ -41,7 +41,7 @@ Returns an array with the quotes between two dates: `startAt` and `endAt`.
 const trmapi = new TrmApi();
 
 trmapi
-  .between({ startAt: '2020-07-02', endAt: '2020-07-02' })
+  .between({ startAt: '2020-07-02', endAt: '2020-07-10' })
   .then(console.log);
 ```
 
