@@ -4,7 +4,7 @@
   "description": "A wrapper to simplify GET requests and JSON response parsing from the API",
   "main": "dist/index.js",
   "scripts": {
-    "lint": "eslint . --ext .ts --fix",
+    "lint": "eslint . --cache --ext .ts --fix",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,8 +18,19 @@
     "eslint-config-airbnb-typescript": "^9.0.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "typescript": "^3.9.7"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix",
+    "*.{js,ts,css,md}": "prettier --write"
+  }
 }
