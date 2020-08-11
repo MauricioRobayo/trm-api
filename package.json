@@ -1,17 +1,61 @@
 {
   "name": "trm-api",
-  "version": "1.0.0",
+  "version": "1.0.0-semantic-release",
   "description": "A wrapper to simplify GET requests and JSON response parsing from the API",
   "main": "dist/index.js",
   "scripts": {
+    "lint": "eslint . --cache --ext .ts --fix",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "tasa de cambio representativa del mercado",
+    "tasa representativa del mercado",
+    "trm",
+    "colombian",
+    "exchange rate"
+  ],
   "author": "Mauricio Robayo <rfmajo@gmail.com> (https://www.mauriciorobayo.com/)",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-typescript": "^9.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
     "typescript": "^3.9.7"
   },
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix",
+    "*.{js,ts,css,md}": "prettier --write"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MauricioRobayo/trm-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MauricioRobayo/trm-api/issues"
+  },
+  "homepage": "https://github.com/MauricioRobayo/trm-api#readme",
+  "files": [
+    "dist"
+  ]
 }

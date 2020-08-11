@@ -3,12 +3,12 @@
     "target": "es5",
     "module": "commonjs",
     "declaration": true,
+    "lib": ["ES2015", "dom"],
     "outDir": "./dist",
-    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["./src"]
+  "include": ["src/**/*.ts"],
 }
