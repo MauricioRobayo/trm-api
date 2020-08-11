@@ -46,5 +46,13 @@
   },
   "prettier": {
     "singleQuote": true
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MauricioRobayo/trm-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MauricioRobayo/trm-api/issues"
+  },
+  "homepage": "https://github.com/MauricioRobayo/trm-api#readme"
 }
