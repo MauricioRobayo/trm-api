@@ -1,6 +1,6 @@
 {
   "name": "trm-api",
-  "version": "1.0.0",
+  "version": "1.0.0-semantic-release",
   "description": "A wrapper to simplify GET requests and JSON response parsing from the API",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,13 @@
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "tasa de cambio representativa del mercado",
+    "tasa representativa del mercado",
+    "trm",
+    "colombian",
+    "exchange rate"
+  ],
   "author": "Mauricio Robayo <rfmajo@gmail.com> (https://www.mauriciorobayo.com/)",
   "license": "MIT",
   "devDependencies": {
