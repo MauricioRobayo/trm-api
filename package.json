@@ -54,5 +54,8 @@
   "bugs": {
     "url": "https://github.com/MauricioRobayo/trm-api/issues"
   },
-  "homepage": "https://github.com/MauricioRobayo/trm-api#readme"
+  "homepage": "https://github.com/MauricioRobayo/trm-api#readme",
+  "files": [
+    "dist"
+  ]
 }
