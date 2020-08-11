@@ -35,5 +35,8 @@
   "lint-staged": {
     "*.ts": "eslint --cache --fix",
     "*.{js,ts,css,md}": "prettier --write"
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }
