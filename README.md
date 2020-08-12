@@ -1,6 +1,9 @@
 # TRM API
 
-This is a TypeScript client for the [Tasa Representativa del Mercado API](https://dev.socrata.com/foundry/www.datos.gov.co/32sa-8pi3). The `trm-api` package is a wrapper to simplify GET requests and JSON response parsing from the API.
+[![npm version](https://badge.fury.io/js/trm-api.svg)](https://badge.fury.io/js/trm-api)
+[![build and release](https://github.com/MauricioRobayo/trm-api/workflows/build%20and%20release/badge.svg)](https://github.com/MauricioRobayo/trm-api/actions?query=workflow%3A%22Build+and+Release%22)
+
+The `trm-api` package is a wrapper to simplify GET requests and JSON response parsing from the [Tasa Representativa del Mercado API](https://dev.socrata.com/foundry/www.datos.gov.co/32sa-8pi3).
 
 ## Install
 
@@ -10,16 +13,23 @@ npm install trm-api
 
 ## Usage
 
-Instantiate the `TrmApi` class, which provides two methods: `latest()` and `between({startAt: string, endAt: string})`.
+The `TrmApi` class provides three methods: `latest()`, `between(options)`, and `history(?options)`.
+
+```js
+const TrmApi = require('trm-api');
+
+const trmapi = new TrmApi();
+```
 
 #### `latest()`
 
 Provides the most recent quote:
 
 ```js
-const trmapi = new TrmApi();
-
-trmapi.latest().then(console.log);
+trmapi
+  .latest()
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
 ```
 
 The response is an object with the latest information from the [Tasa Representativa del Mercado API](https://dev.socrata.com/foundry/www.datos.gov.co/32sa-8pi3):
@@ -33,16 +43,72 @@ The response is an object with the latest information from the [Tasa Representat
 }
 ```
 
-#### `between()`
+#### `between(options)`
 
 Returns an array with the quotes between two dates: `startAt` and `endAt`.
 
-```js
-const trmapi = new TrmApi();
+The `options` argument is an object with the following fields:
 
+| Field   | Type     | Description                                                          |
+| ------- | -------- | -------------------------------------------------------------------- |
+| startAt | Required | The initial date of the data to be retrieved in `YYYY-MM-DD` format. |
+| endAt   | Required | The final date of the data to be retrieved in `YYYY-MM-DD` format.   |
+| order?  | Optional | Can be `'ASC'` or `'DESC'`. Defaults to `'ASC'`.                     |
+
+```js
+trmapi.trmapi
+  .between({ startAt: '2020-07-02', endAt: '2020-07-7', order: 'DESC' })
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+```
+
+Will return the following array:
+
+```js
+[
+  {
+    valor: '3633.32',
+    unidad: 'COP',
+    vigenciadesde: '2020-07-07T00:00:00.000',
+    vigenciahasta: '2020-07-07T00:00:00.000',
+  },
+  {
+    valor: '3645.90',
+    unidad: 'COP',
+    vigenciadesde: '2020-07-04T00:00:00.000',
+    vigenciahasta: '2020-07-06T00:00:00.000',
+  },
+  {
+    valor: '3660.18',
+    unidad: 'COP',
+    vigenciadesde: '2020-07-03T00:00:00.000',
+    vigenciahasta: '2020-07-03T00:00:00.000',
+  },
+  {
+    valor: '3723.67',
+    unidad: 'COP',
+    vigenciadesde: '2020-07-02T00:00:00.000',
+    vigenciahasta: '2020-07-02T00:00:00.000',
+  },
+];
+```
+
+#### `history(?options)`
+
+Returns an array with all the values starting from the most recent value.
+
+The `options` optional argument is an object with the following fields:
+
+| Field  | Type     | Description                                                                |
+| ------ | -------- | -------------------------------------------------------------------------- |
+| order? | Optional | Can be `'ASC'` or `'DESC'`. Defaults to `ASC`.                             |
+| limit? | Optional | Maximum number of results to return. Defaults to 1,000. Maximum of 50,000. |
+
+```js
 trmapi
-  .between({ startAt: '2020-07-02', endAt: '2020-07-10' })
-  .then(console.log);
+  .history({ limit: 30 })
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
 ```
 
 ### TypeScript

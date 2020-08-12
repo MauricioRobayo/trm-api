@@ -20,13 +20,37 @@ class TrmApi {
   async between({
     startAt,
     endAt,
+    order = 'ASC',
   }: {
     startAt: string;
     endAt: string;
+    order?: 'ASC' | 'DESC';
   }): Promise<TrmApiQuote[]> {
-    const searchString = `$where=vigenciadesde >= '${startAt}' AND vigenciahasta <= '${endAt}'`;
+    const searchparams = new URLSearchParams({
+      $where: `vigenciadesde >= '${startAt}' AND vigenciahasta <= '${endAt}'`,
+      $order: `vigenciadesde ${order}`,
+    });
+
     const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?${searchString}`
+      `${this.trmApiUrl}?${searchparams}`
+    );
+    return data;
+  }
+
+  async history({
+    limit = 1000,
+    order = 'ASC',
+  }: {
+    order?: 'ASC' | 'DESC';
+    limit?: number;
+  } = {}) {
+    const searchparams = new URLSearchParams({
+      $limit: String(limit),
+      $order: `vigenciadesde ${order}`,
+    });
+
+    const { data } = await axios.get<TrmApiQuote[]>(
+      `${this.trmApiUrl}?${searchparams}`
     );
     return data;
   }
