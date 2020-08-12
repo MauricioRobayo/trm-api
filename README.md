@@ -10,15 +10,19 @@ npm install trm-api
 
 ## Usage
 
-Instantiate the `TrmApi` class, which provides two methods: `latest()` and `between({startAt: string, endAt: string})`.
+The `TrmApi` class provides three methods: `latest()`, `between(options)`, and `history(?options)`.
+
+```js
+const TrmApi = require('trm-api');
+
+const trmapi = new TrmApi();
+```
 
 #### `latest()`
 
 Provides the most recent quote:
 
 ```js
-const trmapi = new TrmApi();
-
 trmapi.latest().then(console.log);
 ```
 
