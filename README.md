@@ -55,17 +55,48 @@ The `options` argument is an object which accepts the following fields:
 | ?order  | Optional | Can be `'ASC'` or `'DESC'`. Defaults to `'DESC'`, the most recent date first. |
 
 ```js
-trmapi
-  .between({ startAt: '2020-07-02', endAt: '2020-07-10' })
+trmapi.trmapi
+  .between({ startAt: '2020-07-02', endAt: '2020-07-7' })
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
+```
+
+Will return the following array:
+
+```js
+[
+  {
+    valor: '3633.32',
+    unidad: 'COP',
+    vigenciadesde: '2020-07-07T00:00:00.000',
+    vigenciahasta: '2020-07-07T00:00:00.000',
+  },
+  {
+    valor: '3645.90',
+    unidad: 'COP',
+    vigenciadesde: '2020-07-04T00:00:00.000',
+    vigenciahasta: '2020-07-06T00:00:00.000',
+  },
+  {
+    valor: '3660.18',
+    unidad: 'COP',
+    vigenciadesde: '2020-07-03T00:00:00.000',
+    vigenciahasta: '2020-07-03T00:00:00.000',
+  },
+  {
+    valor: '3723.67',
+    unidad: 'COP',
+    vigenciadesde: '2020-07-02T00:00:00.000',
+    vigenciahasta: '2020-07-02T00:00:00.000',
+  },
+];
 ```
 
 #### `history(?options)`
 
 Returns an array with all the values starting from the most recent value.
 
-The `options` optional argument accepts the following fields:
+The `options` optional argument is an object which accepts the following fields:
 
 | Field  | Type     | Description                                                                 |
 | ------ | -------- | --------------------------------------------------------------------------- |
