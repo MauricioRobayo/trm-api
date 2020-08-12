@@ -46,17 +46,17 @@ The response is an object with the latest information from the [Tasa Representat
 
 Returns an array with the quotes between two dates: `startAt` and `endAt`.
 
-The `options` argument is an object which accepts the following fields:
+The `options` argument is an object with the following fields:
 
-| Field   | Type     | Description                                                                   |
-| ------- | -------- | ----------------------------------------------------------------------------- |
-| startAt | Required | The initial date of the data to be retrieved in `YYYY-MM-DD` format.          |
-| endAt   | Required | The final date of the data to be retrieved in `YYYY-MM-DD` format.            |
-| ?order  | Optional | Can be `'ASC'` or `'DESC'`. Defaults to `'DESC'`, the most recent date first. |
+| Field   | Type     | Description                                                          |
+| ------- | -------- | -------------------------------------------------------------------- |
+| startAt | Required | The initial date of the data to be retrieved in `YYYY-MM-DD` format. |
+| endAt   | Required | The final date of the data to be retrieved in `YYYY-MM-DD` format.   |
+| order?  | Optional | Can be `'ASC'` or `'DESC'`. Defaults to `'ASC'`.                     |
 
 ```js
 trmapi.trmapi
-  .between({ startAt: '2020-07-02', endAt: '2020-07-7' })
+  .between({ startAt: '2020-07-02', endAt: '2020-07-7', order: 'DESC' })
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
 ```
@@ -96,16 +96,16 @@ Will return the following array:
 
 Returns an array with all the values starting from the most recent value.
 
-The `options` optional argument is an object which accepts the following fields:
+The `options` optional argument is an object with the following fields:
 
-| Field  | Type     | Description                                                                 |
-| ------ | -------- | --------------------------------------------------------------------------- |
-| ?order | Optional | Can be `'ASC'` or `'DESC'`. Defaults to `DESC`, the most recent date first. |
-| ?limit | Optional | Maximum number of results to return. Defaults to 1,000. Maximum of 50,000.  |
+| Field  | Type     | Description                                                                |
+| ------ | -------- | -------------------------------------------------------------------------- |
+| order? | Optional | Can be `'ASC'` or `'DESC'`. Defaults to `ASC`.                             |
+| limit? | Optional | Maximum number of results to return. Defaults to 1,000. Maximum of 50,000. |
 
 ```js
 trmapi
-  .history({ limit: 30, order: 'ASC' })
+  .history({ limit: 30 })
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
 ```
