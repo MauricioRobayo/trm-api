@@ -1,7 +1,7 @@
 {
   "name": "trm-api",
   "version": "1.0.0-semantic-release",
-  "description": "A wrapper to simplify GET requests and JSON response parsing from the API",
+  "description": "A wrapper to simplify GET requests and JSON response parsing from the Tasa Representativa del Mercado API",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint . --cache --ext .ts --fix",
