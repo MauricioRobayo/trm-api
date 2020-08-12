@@ -33,9 +33,17 @@ The response is an object with the latest information from the [Tasa Representat
 }
 ```
 
-#### `between()`
+#### `between(options)`
 
 Returns an array with the quotes between two dates: `startAt` and `endAt`.
+
+The `options` argument is an object which accepts the following fields:
+
+| Field   | Type     | Description                                                             |
+| ------- | -------- | ----------------------------------------------------------------------- |
+| startAt | Required | The initial date of the data to be retrieved in `YYYY-MM-DD` format.    |
+| endAt   | Required | The final date of the data to be retrieved in `YYYY-MM-DD` format.      |
+| ?order  | Optional | Can be 'ASC' or 'DESC'. Defaults to `DESC`, the most recent date first. |
 
 ```js
 const trmapi = new TrmApi();
@@ -44,6 +52,17 @@ trmapi
   .between({ startAt: '2020-07-02', endAt: '2020-07-10' })
   .then(console.log);
 ```
+
+#### `history(?options)`
+
+Returns an array with all the values starting from the most recent value.
+
+The `options` optional argument accepts the following fields:
+
+| Field  | Type     | Description                                                                |
+| ------ | -------- | -------------------------------------------------------------------------- |
+| ?order | Optional | Can be 'ASC' or 'DESC'. Defaults to `DESC`, the most recent date first.    |
+| ?limit | Optional | Maximum number of results to return. Defaults to 1,000. Maximum of 50,000. |
 
 ### TypeScript
 
