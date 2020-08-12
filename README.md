@@ -23,7 +23,10 @@ const trmapi = new TrmApi();
 Provides the most recent quote:
 
 ```js
-trmapi.latest().then(console.log);
+trmapi
+  .latest()
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
 ```
 
 The response is an object with the latest information from the [Tasa Representativa del Mercado API](https://dev.socrata.com/foundry/www.datos.gov.co/32sa-8pi3):
@@ -43,18 +46,17 @@ Returns an array with the quotes between two dates: `startAt` and `endAt`.
 
 The `options` argument is an object which accepts the following fields:
 
-| Field   | Type     | Description                                                             |
-| ------- | -------- | ----------------------------------------------------------------------- |
-| startAt | Required | The initial date of the data to be retrieved in `YYYY-MM-DD` format.    |
-| endAt   | Required | The final date of the data to be retrieved in `YYYY-MM-DD` format.      |
-| ?order  | Optional | Can be 'ASC' or 'DESC'. Defaults to `DESC`, the most recent date first. |
+| Field   | Type     | Description                                                                   |
+| ------- | -------- | ----------------------------------------------------------------------------- |
+| startAt | Required | The initial date of the data to be retrieved in `YYYY-MM-DD` format.          |
+| endAt   | Required | The final date of the data to be retrieved in `YYYY-MM-DD` format.            |
+| ?order  | Optional | Can be `'ASC'` or `'DESC'`. Defaults to `'DESC'`, the most recent date first. |
 
 ```js
-const trmapi = new TrmApi();
-
 trmapi
   .between({ startAt: '2020-07-02', endAt: '2020-07-10' })
-  .then(console.log);
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
 ```
 
 #### `history(?options)`
@@ -63,10 +65,17 @@ Returns an array with all the values starting from the most recent value.
 
 The `options` optional argument accepts the following fields:
 
-| Field  | Type     | Description                                                                |
-| ------ | -------- | -------------------------------------------------------------------------- |
-| ?order | Optional | Can be 'ASC' or 'DESC'. Defaults to `DESC`, the most recent date first.    |
-| ?limit | Optional | Maximum number of results to return. Defaults to 1,000. Maximum of 50,000. |
+| Field  | Type     | Description                                                                 |
+| ------ | -------- | --------------------------------------------------------------------------- |
+| ?order | Optional | Can be `'ASC'` or `'DESC'`. Defaults to `DESC`, the most recent date first. |
+| ?limit | Optional | Maximum number of results to return. Defaults to 1,000. Maximum of 50,000.  |
+
+```js
+trmapi
+  .history({ limit: 30, order: 'ASC' })
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+```
 
 ### TypeScript
 
