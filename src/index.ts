@@ -36,6 +36,24 @@ class TrmApi {
     );
     return data;
   }
+
+  async history({
+    order = 'DESC',
+    limit = 1000,
+  }: {
+    order?: 'ASC' | 'DESC';
+    limit?: number;
+  } = {}) {
+    const searchparams = new URLSearchParams({
+      $limit: String(limit),
+      $order: `vigenciadesde ${order}`,
+    });
+
+    const { data } = await axios.get<TrmApiQuote[]>(
+      `${this.trmApiUrl}?${searchparams}`
+    );
+    return data;
+  }
 }
 
 export default TrmApi;
