@@ -20,7 +20,7 @@ class TrmApi {
   async between({
     startAt,
     endAt,
-    order = 'DESC',
+    order = 'ASC',
   }: {
     startAt: string;
     endAt: string;
@@ -38,8 +38,8 @@ class TrmApi {
   }
 
   async history({
-    order = 'DESC',
     limit = 1000,
+    order = 'ASC',
   }: {
     order?: 'ASC' | 'DESC';
     limit?: number;
