@@ -10,9 +10,18 @@ export interface TrmApiQuote {
 class TrmApi {
   private trmApiUrl = 'https://www.datos.gov.co/resource/32sa-8pi3';
 
+  private headers: Record<string, string>;
+
+  constructor(private appToken: string = '') {
+    this.headers = {
+      'X-App-Token': appToken,
+    };
+  }
+
   async latest(): Promise<TrmApiQuote> {
     const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?$limit=1`
+      `${this.trmApiUrl}?$limit=1`,
+      { headers: this.headers }
     );
     return data[0];
   }
@@ -32,7 +41,8 @@ class TrmApi {
     });
 
     const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?${searchparams}`
+      `${this.trmApiUrl}?${searchparams}`,
+      { headers: this.headers }
     );
     return data;
   }
@@ -50,7 +60,8 @@ class TrmApi {
     });
 
     const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?${searchparams}`
+      `${this.trmApiUrl}?${searchparams}`,
+      { headers: this.headers }
     );
     return data;
   }
