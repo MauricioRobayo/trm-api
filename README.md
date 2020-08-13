@@ -21,6 +21,24 @@ const TrmApi = require('trm-api');
 const trmapi = new TrmApi();
 ```
 
+#### App Token
+
+A limited number of requests can be made without an app token, but they are subject to much lower throttling limits than request that do include one.
+
+With an app token, your application is guaranteed access to it's own pool of requests.
+
+👉 [Sign up for an app token!](https://www.datos.gov.co/profile/edit/developer_settings)
+
+![app-token](https://user-images.githubusercontent.com/2121481/90161654-11e0e280-dd59-11ea-9678-4d0a9f995b3c.png)
+
+You can pass your app token in the constructor:
+
+```js
+const TrmApi = require('trm-api');
+
+const trmapi = new TrmApi('YOUR-APP-TOKEN-HERE');
+```
+
 #### `latest()`
 
 Provides the most recent quote:
