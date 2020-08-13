@@ -36,7 +36,7 @@ class TrmApi {
     order?: 'ASC' | 'DESC';
   }): Promise<TrmApiQuote[]> {
     const searchparams = new URLSearchParams({
-      $where: `vigenciadesde >= '${startAt}' AND vigenciahasta <= '${endAt}'`,
+      $where: `(vigenciadesde <= '${startAt}' AND vigenciahasta >= '${startAt}') OR (vigenciadesde >= '${startAt}' AND vigenciahasta <= '${endAt}') OR (vigenciadesde <= '${endAt}' AND vigenciahasta >= '${endAt}')`,
       $order: `vigenciadesde ${order}`,
     });
 
