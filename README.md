@@ -111,7 +111,7 @@ Will return the following array:
 ];
 ```
 
-#### `history(?options)`
+#### `history(options?)`
 
 Returns an array with all the values starting from the most recent value.
 
