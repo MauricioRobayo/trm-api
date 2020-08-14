@@ -50,7 +50,7 @@ trmapi
   .catch((error) => console.log(error));
 ```
 
-The response is an object with the latest information from the [Tasa Representativa del Mercado API](https://dev.socrata.com/foundry/www.datos.gov.co/32sa-8pi3):
+The response is a single object with the latest information from the [Tasa Representativa del Mercado API](https://dev.socrata.com/foundry/www.datos.gov.co/32sa-8pi3):
 
 ```js
 {
@@ -111,7 +111,7 @@ Will return the following array:
 ];
 ```
 
-#### `history(?options)`
+#### `history(options?)`
 
 Returns an array with all the values starting from the most recent value.
 
@@ -129,9 +129,51 @@ trmapi
   .catch((error) => console.log(error));
 ```
 
+#### `date()`
+
+A wrapper that extracts the first result from `between({ startAd: date, endAt: date})`.
+
+Returns the TRM for an specific date given in `YYYY-MM-DD` format:
+
+```js
+trmapi
+  .date('2020-08-10')
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+```
+
+The response is a single object with the information for the given date:
+
+```js
+{
+  valor: '3792.98',
+  unidad: 'COP',
+  vigenciadesde: '2020-08-05T00:00:00.000',
+  vigenciahasta: '2020-08-05T00:00:00.000'
+}
+```
+
 ### TypeScript
 
 The module is written in TypeScript and type definitions files are included.
+
+## CLI
+
+The packages provides a simple CLI to quickly get TRM quotes.
+
+If called without arguments it will return the current exchange rate:
+
+```
+$ npx trm-api
+3767.05
+```
+
+It can also be called with a given date in `YYYY-MM-DD` format to get the exchange rate for that date:
+
+```
+$ npx trm-api 2010-09-23
+1803.71
+```
 
 ## Contributing
 

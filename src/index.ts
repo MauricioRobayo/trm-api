@@ -36,7 +36,7 @@ class TrmApi {
     order?: 'ASC' | 'DESC';
   }): Promise<TrmApiQuote[]> {
     const searchparams = new URLSearchParams({
-      $where: `vigenciadesde >= '${startAt}' AND vigenciahasta <= '${endAt}'`,
+      $where: `(vigenciadesde <= '${startAt}' AND vigenciahasta >= '${startAt}') OR (vigenciadesde >= '${startAt}' AND vigenciahasta <= '${endAt}') OR (vigenciadesde <= '${endAt}' AND vigenciahasta >= '${endAt}')`,
       $order: `vigenciadesde ${order}`,
     });
 
@@ -64,6 +64,11 @@ class TrmApi {
       { headers: this.headers }
     );
     return data;
+  }
+
+  async date(date: string): Promise<TrmApiQuote> {
+    const data = await this.between({ startAt: date, endAt: date });
+    return data[0];
   }
 }
 
