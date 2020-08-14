@@ -1,4 +1,4 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["*.js", "src/**/*.ts"],
+  "include": ["*.js", "__mocks__", "src/**/*.ts"],
 }
