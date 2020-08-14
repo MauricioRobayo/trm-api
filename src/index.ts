@@ -65,6 +65,11 @@ class TrmApi {
     );
     return data;
   }
+
+  async date(date: string): Promise<TrmApiQuote> {
+    const data = await this.between({ startAt: date, endAt: date });
+    return data[0];
+  }
 }
 
 export default TrmApi;
