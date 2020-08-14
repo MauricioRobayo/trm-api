@@ -19,8 +19,12 @@ class TrmApi {
   }
 
   async latest(): Promise<TrmApiQuote> {
+    const searchparams = new URLSearchParams({
+      $limit: '1',
+      $order: 'vigenciahasta DESC',
+    });
     const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?$limit=1`,
+      `${this.trmApiUrl}?${searchparams}`,
       { headers: this.headers }
     );
     return data[0];
