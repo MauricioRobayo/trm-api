@@ -8,7 +8,7 @@ export interface TrmApiQuote {
 }
 
 class TrmApi {
-  private trmApiUrl = 'https://www.datos.gov.co/resource/32sa-8pi3';
+  private trmApiUrl = 'https://www.datos.gov.co/resource/32sa-8pi3.json';
 
   private headers: Record<string, string>;
 
