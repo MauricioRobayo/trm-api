@@ -50,7 +50,7 @@ trmapi
   .catch((error) => console.log(error));
 ```
 
-The response is an object with the latest information from the [Tasa Representativa del Mercado API](https://dev.socrata.com/foundry/www.datos.gov.co/32sa-8pi3):
+The response is a single object with the latest information from the [Tasa Representativa del Mercado API](https://dev.socrata.com/foundry/www.datos.gov.co/32sa-8pi3):
 
 ```js
 {
@@ -127,6 +127,30 @@ trmapi
   .history({ limit: 30 })
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
+```
+
+#### `date()`
+
+A wrapper that extracts the first result from `between({ startAd: date, endAt: date})`.
+
+Returns the TRM for an specific date given in `YYYY-MM-DD` format:
+
+```js
+trmapi
+  .date('2020-08-10')
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+```
+
+The response is a single object with the information for the given date:
+
+```js
+{
+  valor: '3792.98',
+  unidad: 'COP',
+  vigenciadesde: '2020-08-05T00:00:00.000',
+  vigenciahasta: '2020-08-05T00:00:00.000'
+}
 ```
 
 ### TypeScript
