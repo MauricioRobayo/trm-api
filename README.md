@@ -17,8 +17,18 @@ npm install trm-api
 
 The `TrmApi` class provides three methods: `latest()`, `between(options)`, and `history(options?)`.
 
+### CommonJS
+
 ```js
-const TrmApi = require('trm-api');
+const TrmApi = require('trm-api').default;
+
+const trmapi = new TrmApi();
+```
+
+### ES6 Modules
+
+```js
+import TrmApi from 'trm-api';
 
 const trmapi = new TrmApi();
 ```
