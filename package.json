@@ -4,7 +4,7 @@
   "description": "A wrapper to simplify GET requests and JSON response parsing from the Tasa Representativa del Mercado API",
   "main": "dist/index.js",
   "bin": {
-    "trm-api": "dist/bin/index.js"
+    "trm-api": "bin/trm-api"
   },
   "scripts": {
     "lint": "eslint . --cache --ext .ts --fix",

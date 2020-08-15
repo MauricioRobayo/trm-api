@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 
-import { AxiosError } from 'axios';
-import TrmApi from '../index';
+const TrmApi = require('../dist/index').default;
 
 const trmapi = new TrmApi();
 
-function errorHandler(error: AxiosError): void {
+function errorHandler(error) {
   if (error.response) {
     // The request was made and the server responded with a status code
     // that falls out of the range of 2xx
