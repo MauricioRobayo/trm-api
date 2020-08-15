@@ -139,7 +139,7 @@ trmapi
   .catch((error) => console.log(error));
 ```
 
-#### `date()`
+#### `date(date)`
 
 A wrapper that extracts the first result from `between({ startAd: date, endAt: date})`.
 
