@@ -46,8 +46,6 @@ With an app token, your application is guaranteed access to it's own pool of req
 You can pass your app token in the constructor:
 
 ```js
-const TrmApi = require('trm-api');
-
 const trmapi = new TrmApi('YOUR-APP-TOKEN-HERE');
 ```
 
