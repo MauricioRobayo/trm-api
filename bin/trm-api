@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 
-const TrmApi = require('../dist/index').default;
+const TrmApi = require(`${__dirname}/../dist/index`).default;
 
 const trmapi = new TrmApi();
 

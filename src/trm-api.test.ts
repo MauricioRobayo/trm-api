@@ -1,5 +1,5 @@
 import axios from 'axios';
-import TrmApi from './index';
+import TrmApi from './trm-api';
 
 afterEach(() => {
   jest.clearAllMocks();
