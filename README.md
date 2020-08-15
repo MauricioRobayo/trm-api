@@ -3,6 +3,7 @@
 [![npm version](https://badge.fury.io/js/trm-api.svg)](https://badge.fury.io/js/trm-api)
 [![build and release](https://github.com/MauricioRobayo/trm-api/workflows/build%20and%20release/badge.svg)](https://github.com/MauricioRobayo/trm-api/actions?query=workflow%3A%22Build+and+Release%22)
 [![codecov](https://codecov.io/gh/MauricioRobayo/trm-api/branch/master/graph/badge.svg)](https://codecov.io/gh/MauricioRobayo/trm-api)
+[![CodeFactor](https://www.codefactor.io/repository/github/mauriciorobayo/trm-api/badge)](https://www.codefactor.io/repository/github/mauriciorobayo/trm-api)
 
 The `trm-api` package is a wrapper to simplify GET requests and JSON response parsing from the [Tasa Representativa del Mercado API](https://dev.socrata.com/foundry/www.datos.gov.co/32sa-8pi3).
 
