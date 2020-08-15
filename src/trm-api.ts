@@ -8,19 +8,25 @@ export interface TrmApiQuote {
 }
 
 class TrmApi {
-  private trmApiUrl = 'https://www.datos.gov.co/resource/32sa-8pi3';
+  private trmApiUrl = 'https://www.datos.gov.co/resource/32sa-8pi3.json';
 
-  private headers: Record<string, string>;
+  private headers: Record<string, string> = {};
 
   constructor(private appToken: string = '') {
-    this.headers = {
-      'X-App-Token': appToken,
-    };
+    if (appToken !== '') {
+      this.headers = {
+        'X-App-Token': appToken,
+      };
+    }
   }
 
   async latest(): Promise<TrmApiQuote> {
+    const searchparams = new URLSearchParams({
+      $limit: '1',
+      $order: 'vigenciahasta DESC',
+    });
     const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?$limit=1`,
+      `${this.trmApiUrl}?${searchparams}`,
       { headers: this.headers }
     );
     return data[0];
