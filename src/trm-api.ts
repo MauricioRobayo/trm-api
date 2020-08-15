@@ -10,12 +10,14 @@ export interface TrmApiQuote {
 class TrmApi {
   private trmApiUrl = 'https://www.datos.gov.co/resource/32sa-8pi3.json';
 
-  private headers: Record<string, string>;
+  private headers: Record<string, string> = {};
 
   constructor(private appToken: string = '') {
-    this.headers = {
-      'X-App-Token': appToken,
-    };
+    if (appToken !== '') {
+      this.headers = {
+        'X-App-Token': appToken,
+      };
+    }
   }
 
   async latest(): Promise<TrmApiQuote> {
