@@ -15,7 +15,7 @@ npm install trm-api
 
 ## Usage
 
-The `TrmApi` class provides three methods: `latest()`, `between(options)`, and `history(options?)`.
+The `TrmApi` class provides four methods: `latest()`, `between(options)`, `history(options?)`, and `date(date)`.
 
 ### CommonJS
 
@@ -141,9 +141,7 @@ trmapi
 
 #### `date(date)`
 
-A wrapper that extracts the first result from `between({ startAd: date, endAt: date})`.
-
-Returns the TRM for an specific date given in `YYYY-MM-DD` format:
+Returns the TRM for an specific date given in `YYYY-MM-DD` format.
 
 ```js
 trmapi
