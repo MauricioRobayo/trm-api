@@ -94,6 +94,20 @@ it('should call the API for a given date', async () => {
   });
 });
 
+it('should call the API with a given query', async () => {
+  const trmapi = new TrmApi();
+  const data = await trmapi.query(
+    "SELECT valor, vigenciadesde WHERE valor >= 4150 AND vigenciadesde < '2020-08-01'"
+  );
+  expect(
+    axios.get
+  ).toBeCalledWith(
+    'https://www.datos.gov.co/resource/32sa-8pi3.json?%24query=SELECT+valor%2C+vigenciadesde+WHERE+valor+%3E%3D+4150+AND+vigenciadesde+%3C+%272020-08-01%27',
+    { headers: {} }
+  );
+  expect(Array.isArray(data)).toBe(true);
+});
+
 it('should call the API with an app token', async () => {
   const trmapi = new TrmApi('1234');
   await trmapi.date('1991-12-02');

@@ -15,7 +15,7 @@ npm install trm-api
 
 ## Usage
 
-The `TrmApi` class provides four methods: `latest()`, `between(options)`, `history(options?)`, and `date(date)`.
+The `TrmApi` class provides five methods: `latest()`, `between(options)`, `history(options?)`, `date(date)`, and `query(query)`.
 
 ### CommonJS
 
@@ -159,6 +159,29 @@ The response is a single object with the information for the given date:
   vigenciadesde: '2020-08-05T00:00:00.000',
   vigenciahasta: '2020-08-05T00:00:00.000'
 }
+```
+
+#### `query(query)`
+
+This method allows you to use any custom [`SoQL query`](https://dev.socrata.com/docs/queries/).
+
+For example:
+
+```js
+const data = await trmapi.query(
+  "SELECT valor, vigenciadesde WHERE valor >= 4150 AND vigenciadesde < '2020-08-01'"
+);
+```
+
+It will always return an array of objects with the requested fields (or all the fields if no SELECT clause used):
+
+```js
+[
+  {
+    valor: '4153.91',
+    vigenciadesde: '2020-03-20T00:00:00.000',
+  },
+];
 ```
 
 ### TypeScript

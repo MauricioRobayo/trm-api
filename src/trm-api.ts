@@ -76,6 +76,18 @@ class TrmApi {
     const data = await this.between({ startAt: date, endAt: date });
     return data[0];
   }
+
+  async query(query: string): Promise<TrmApiQuote[]> {
+    const searchparams = new URLSearchParams({
+      $query: query,
+    });
+
+    const { data } = await axios.get<TrmApiQuote[]>(
+      `${this.trmApiUrl}?${searchparams}`,
+      { headers: this.headers }
+    );
+    return data;
+  }
 }
 
 export default TrmApi;
