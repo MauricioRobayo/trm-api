@@ -169,49 +169,17 @@ For example:
 
 ```js
 const data = await trmapi.query(
-  "SELECT valor, vigenciadesde WHERE valor > 4000 AND vigenciadesde >= '2020-04-01'"
+  "SELECT valor, vigenciadesde WHERE valor >= 4150 AND vigenciadesde < '2020-08-01'"
 );
 ```
 
-It will always return an array of objects with the requested fields:
+It will always return an array of objects with the requested fields (or all the fields if no SELECT clause used):
 
 ```js
 [
   {
-    valor: '4039.87',
-    vigenciadesde: '2020-04-25T00:00:00.000',
-  },
-  {
-    valor: '4039.83',
-    vigenciadesde: '2020-04-28T00:00:00.000',
-  },
-  {
-    valor: '4037.95',
-    vigenciadesde: '2020-04-23T00:00:00.000',
-  },
-  {
-    valor: '4081.06',
-    vigenciadesde: '2020-04-02T00:00:00.000',
-  },
-  {
-    valor: '4008.78',
-    vigenciadesde: '2020-04-04T00:00:00.000',
-  },
-  {
-    valor: '4046.04',
-    vigenciadesde: '2020-04-29T00:00:00.000',
-  },
-  {
-    valor: '4065.50',
-    vigenciadesde: '2020-04-03T00:00:00.000',
-  },
-  {
-    valor: '4020.94',
-    vigenciadesde: '2020-04-24T00:00:00.000',
-  },
-  {
-    valor: '4045.01',
-    vigenciadesde: '2020-04-22T00:00:00.000',
+    valor: '4153.91',
+    vigenciadesde: '2020-03-20T00:00:00.000',
   },
 ];
 ```
