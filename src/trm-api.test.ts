@@ -102,7 +102,7 @@ it('should call the API with a given query', async () => {
   expect(
     axios.get
   ).toBeCalledWith(
-    'https://www.datos.gov.co/resource/32sa-8pi3.json?%24query=SELECT+valor%2C+vigenciadesde+WHERE+valor+%3E%3D+3500+AND+vigenciadesde+%3E+%272020-01-01%27',
+    'https://www.datos.gov.co/resource/32sa-8pi3.json?%24query=SELECT+valor%2C+vigenciadesde+WHERE+valor+%3E%3D+4000+AND+vigenciadesde+%3E+%272020-04-01%27',
     { headers: {} }
   );
   expect(Array.isArray(data)).toBe(true);
