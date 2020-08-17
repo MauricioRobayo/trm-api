@@ -97,7 +97,7 @@ it('should call the API for a given date', async () => {
 it('should call the API with a given query', async () => {
   const trmapi = new TrmApi();
   const data = await trmapi.query(
-    'SELECT valor, vigenciadesde WHERE valor >= 3500 AND vigenciadesde > \'2020-01-01\''
+    "SELECT valor, vigenciadesde WHERE valor >= 4000 AND vigenciadesde > '2020-04-01'"
   );
   expect(
     axios.get
