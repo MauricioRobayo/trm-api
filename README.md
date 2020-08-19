@@ -33,6 +33,10 @@ import TrmApi from 'trm-api';
 const trmapi = new TrmApi();
 ```
 
+### TypeScript
+
+The module is written in TypeScript and type definitions files are included.
+
 ### App Token
 
 A limited number of requests can be made without an app token, but they are subject to much lower throttling limits than request that do include one.
@@ -183,10 +187,6 @@ It will always return an array of objects with the requested fields (or all the 
   },
 ];
 ```
-
-### TypeScript
-
-The module is written in TypeScript and type definitions files are included.
 
 ## CLI
 
