@@ -15,7 +15,7 @@ npm install trm-api
 
 ## Usage
 
-The `TrmApi` class provides five methods: `latest()`, `between(options)`, `history(options?)`, `date(date)`, and `query(query)`.
+The `TrmApi` class provides five methods: [`latest()`](#latest), [`between(options)`](#betweenoptions), [`history(options?)`](#historyoptions), [`date(date)`](#datedate), and [`query(query)`](#queryquery).
 
 ### CommonJS
 
@@ -33,7 +33,7 @@ import TrmApi from 'trm-api';
 const trmapi = new TrmApi();
 ```
 
-#### App Token
+### App Token
 
 A limited number of requests can be made without an app token, but they are subject to much lower throttling limits than request that do include one.
 
