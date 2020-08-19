@@ -203,14 +203,14 @@ The packages provides a simple CLI to quickly get TRM quotes.
 If called without arguments it will return the current exchange rate:
 
 ```
-$ npx trm-api
+$ npx --quiet trm-api
 3767.05
 ```
 
 It can also be called with a given date in `YYYY-MM-DD` format to get the exchange rate for that date:
 
 ```
-$ npx trm-api 2010-09-23
+$ npx --quiet trm-api 2010-09-23
 1803.71
 ```
 
