@@ -53,6 +53,14 @@ You can pass your app token in the constructor:
 const trmapi = new TrmApi('YOUR-APP-TOKEN-HERE');
 ```
 
+### Methods
+
+- [`latest()`](#latest)
+- [`between(options)`](#betweenoptions)
+- [`history(options?)`](#historyoptions)
+- [`date(date)`](#datedate)
+- [`query(query)`](#queryquery).
+
 #### `latest()`
 
 Provides the most recent quote:
