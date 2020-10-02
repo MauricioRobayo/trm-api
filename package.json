@@ -39,7 +39,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.20.0"
   },
   "husky": {
     "hooks": {
