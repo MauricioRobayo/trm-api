@@ -15,8 +15,12 @@
     "tasa de cambio representativa del mercado",
     "tasa representativa del mercado",
     "trm",
-    "colombian",
-    "exchange rate"
+    "trmcol",
+    "trm colombia",
+    "colombia",
+    "exchange rate",
+    "colombian exchange rate",
+    "dollar"
   ],
   "author": "Mauricio Robayo <rfmajo@gmail.com> (https://www.mauriciorobayo.com/)",
   "license": "MIT",
