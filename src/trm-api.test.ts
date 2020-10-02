@@ -9,10 +9,10 @@ it('should call the API to get the latest data', async () => {
   const trmapi = new TrmApi();
   const data = await trmapi.latest();
   expect(
-    axios.get
+    axios.get,
   ).toBeCalledWith(
     'https://www.datos.gov.co/resource/32sa-8pi3.json?%24limit=1&%24order=vigenciahasta+DESC',
-    { headers: {} }
+    { headers: {} },
   );
   expect(data).toMatchObject({
     valor: expect.any(String),
@@ -29,10 +29,10 @@ it('should call the API to get the data between two dates sorted ASC by default'
     endAt: '1991-12-02',
   });
   expect(
-    axios.get
+    axios.get,
   ).toBeCalledWith(
     'https://www.datos.gov.co/resource/32sa-8pi3.json?%24where=%28vigenciadesde+%3C%3D+%271991-12-02%27+AND+vigenciahasta+%3E%3D+%271991-12-02%27%29+OR+%28vigenciadesde+%3E%3D+%271991-12-02%27+AND+vigenciahasta+%3C%3D+%271991-12-02%27%29+OR+%28vigenciadesde+%3C%3D+%271991-12-02%27+AND+vigenciahasta+%3E%3D+%271991-12-02%27%29&%24order=vigenciadesde+ASC',
-    { headers: {} }
+    { headers: {} },
   );
   expect(Array.isArray(data)).toBe(true);
 });
@@ -45,10 +45,10 @@ it('should call the API to get the data between two dates sorted DESC', async ()
     order: 'DESC',
   });
   expect(
-    axios.get
+    axios.get,
   ).toBeCalledWith(
     'https://www.datos.gov.co/resource/32sa-8pi3.json?%24where=%28vigenciadesde+%3C%3D+%271991-12-02%27+AND+vigenciahasta+%3E%3D+%271991-12-02%27%29+OR+%28vigenciadesde+%3E%3D+%271991-12-02%27+AND+vigenciahasta+%3C%3D+%271991-12-02%27%29+OR+%28vigenciadesde+%3C%3D+%271991-12-02%27+AND+vigenciahasta+%3E%3D+%271991-12-02%27%29&%24order=vigenciadesde+DESC',
-    { headers: {} }
+    { headers: {} },
   );
   expect(Array.isArray(data)).toBe(true);
 });
@@ -57,10 +57,10 @@ it('should call the API to get the historic data limited to 1000 and sorted ASC 
   const trmapi = new TrmApi();
   const data = await trmapi.history();
   expect(
-    axios.get
+    axios.get,
   ).toBeCalledWith(
     'https://www.datos.gov.co/resource/32sa-8pi3.json?%24limit=1000&%24order=vigenciadesde+ASC',
-    { headers: {} }
+    { headers: {} },
   );
   expect(Array.isArray(data)).toBe(true);
 });
@@ -69,10 +69,10 @@ it('should call the API to get the historic data limited to 1000 and sorted ASC 
   const trmapi = new TrmApi();
   const data = await trmapi.history({ limit: 10, order: 'DESC' });
   expect(
-    axios.get
+    axios.get,
   ).toBeCalledWith(
     'https://www.datos.gov.co/resource/32sa-8pi3.json?%24limit=10&%24order=vigenciadesde+DESC',
-    { headers: {} }
+    { headers: {} },
   );
   expect(Array.isArray(data)).toBe(true);
 });
@@ -81,10 +81,10 @@ it('should call the API for a given date', async () => {
   const trmapi = new TrmApi();
   const data = await trmapi.date('1991-12-02');
   expect(
-    axios.get
+    axios.get,
   ).toBeCalledWith(
     'https://www.datos.gov.co/resource/32sa-8pi3.json?%24where=%28vigenciadesde+%3C%3D+%271991-12-02%27+AND+vigenciahasta+%3E%3D+%271991-12-02%27%29+OR+%28vigenciadesde+%3E%3D+%271991-12-02%27+AND+vigenciahasta+%3C%3D+%271991-12-02%27%29+OR+%28vigenciadesde+%3C%3D+%271991-12-02%27+AND+vigenciahasta+%3E%3D+%271991-12-02%27%29&%24order=vigenciadesde+ASC',
-    { headers: {} }
+    { headers: {} },
   );
   expect(data).toMatchObject({
     valor: expect.any(String),
@@ -97,13 +97,13 @@ it('should call the API for a given date', async () => {
 it('should call the API with a given query', async () => {
   const trmapi = new TrmApi();
   const data = await trmapi.query(
-    "SELECT valor, vigenciadesde WHERE valor >= 4150 AND vigenciadesde < '2020-08-01'"
+    "SELECT valor, vigenciadesde WHERE valor >= 4150 AND vigenciadesde < '2020-08-01'",
   );
   expect(
-    axios.get
+    axios.get,
   ).toBeCalledWith(
     'https://www.datos.gov.co/resource/32sa-8pi3.json?%24query=SELECT+valor%2C+vigenciadesde+WHERE+valor+%3E%3D+4150+AND+vigenciadesde+%3C+%272020-08-01%27',
-    { headers: {} }
+    { headers: {} },
   );
   expect(Array.isArray(data)).toBe(true);
 });
