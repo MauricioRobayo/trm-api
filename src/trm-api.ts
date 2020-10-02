@@ -27,7 +27,7 @@ class TrmApi {
     });
     const { data } = await axios.get<TrmApiQuote[]>(
       `${this.trmApiUrl}?${searchparams}`,
-      { headers: this.headers }
+      { headers: this.headers },
     );
     return data[0];
   }
@@ -48,7 +48,7 @@ class TrmApi {
 
     const { data } = await axios.get<TrmApiQuote[]>(
       `${this.trmApiUrl}?${searchparams}`,
-      { headers: this.headers }
+      { headers: this.headers },
     );
     return data;
   }
@@ -67,7 +67,7 @@ class TrmApi {
 
     const { data } = await axios.get<TrmApiQuote[]>(
       `${this.trmApiUrl}?${searchparams}`,
-      { headers: this.headers }
+      { headers: this.headers },
     );
     return data;
   }
@@ -84,7 +84,7 @@ class TrmApi {
 
     const { data } = await axios.get<TrmApiQuote[]>(
       `${this.trmApiUrl}?${searchparams}`,
-      { headers: this.headers }
+      { headers: this.headers },
     );
     return data;
   }
