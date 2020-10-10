@@ -53,8 +53,13 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: dist
-      - name: Release
+      - name: Release NPM Registry
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
+      - name: Release GH Registry
+        env:
+          NPM_CONFIG_REGISTRY: https://npm.pkg.github.com
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
