@@ -9,8 +9,7 @@
   "scripts": {
     "lint": "eslint . --cache --ext .ts --fix",
     "build": "tsc",
-    "test": "jest --coverage",
-    "release": "semantic-release"
+    "test": "jest --coverage"
   },
   "keywords": [
     "tasa de cambio representativa del mercado",
@@ -45,8 +44,7 @@
     "typescript": "^4.0.3"
   },
   "dependencies": {
-    "axios": "^0.20.0",
-    "semantic-release": "^17.1.2"
+    "axios": "^0.20.0"
   },
   "husky": {
     "hooks": {
