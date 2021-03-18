@@ -69,5 +69,8 @@
   "homepage": "https://www.mauriciorobayo.com/trm-api/",
   "files": [
     "dist"
-  ]
+  ],
+  "release": {
+    "branches": ["main"]
+  }
 }
