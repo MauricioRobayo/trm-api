@@ -9,7 +9,9 @@
   "scripts": {
     "lint": "eslint . --cache --ext .ts --fix",
     "build": "tsc",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "postinstall": "git config core.hooksPath .githooks || true",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "keywords": [
     "tasa de cambio representativa del mercado",
@@ -36,7 +38,6 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.0.2",
-    "husky": "^4.3.0",
     "jest": "^26.4.2",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
@@ -45,12 +46,6 @@
   },
   "dependencies": {
     "axios": "^0.21.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "lint-staged": {
     "*.ts": "eslint --cache --fix",
@@ -71,6 +66,8 @@
     "dist"
   ],
   "release": {
-    "branches": ["main"]
+    "branches": [
+      "main"
+    ]
   }
 }
