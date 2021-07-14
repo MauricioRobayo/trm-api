@@ -96,7 +96,7 @@ The `options` argument is an object with the following fields:
 | order?  | Optional | Can be `'ASC'` or `'DESC'`. Defaults to `'ASC'`.                     |
 
 ```js
-trmApi.trmApi
+trmApi
   .between({ startAt: '2020-07-02', endAt: '2020-07-7', order: 'DESC' })
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
