@@ -180,12 +180,15 @@ This method allows you to use any custom [`SoQL query`](https://dev.socrata.com/
 For example:
 
 ```js
-const data = await trmApi.query(
-  "SELECT valor, vigenciadesde WHERE valor >= 4150 AND vigenciadesde < '2020-08-01'"
-);
+trmApi
+  .query(
+    "SELECT valor, vigenciadesde WHERE valor >= 4150 AND vigenciadesde < '2020-08-01'"
+  )
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
 ```
 
-It will always return an array of objects with the requested fields (or all the fields if no SELECT clause used):
+It will return an array of objects each with the requested fields (or all the fields if no SELECT clause used):
 
 ```js
 [
