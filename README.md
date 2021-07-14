@@ -157,7 +157,7 @@ Returns the TRM for an specific date given in `YYYY-MM-DD` format.
 
 ```js
 trmApi
-  .date('2020-08-10')
+  .date('2020-08-09')
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
 ```
@@ -166,10 +166,10 @@ The response is a single object with the information for the given date:
 
 ```js
 {
-  valor: '3792.98',
+  valor: '3769.67',
   unidad: 'COP',
-  vigenciadesde: '2020-08-05T00:00:00.000',
-  vigenciahasta: '2020-08-05T00:00:00.000'
+  vigenciadesde: '2020-08-07T00:00:00.000',
+  vigenciahasta: '2020-08-10T00:00:00.000'
 }
 ```
 
