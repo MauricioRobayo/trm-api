@@ -2,7 +2,7 @@
 
 const TrmApi = require(`${__dirname}/../dist/trm-api`).default;
 
-const trmapi = new TrmApi();
+const trmApi = new TrmApi();
 
 function errorHandler(error) {
   if (error.response) {
@@ -21,12 +21,12 @@ function errorHandler(error) {
 }
 
 if (process.argv.length > 2) {
-  trmapi
+  trmApi
     .date(process.argv[2])
     .then(({ valor }) => console.log(valor))
     .catch(errorHandler);
 } else {
-  trmapi
+  trmApi
     .latest()
     .then(({ valor }) => console.log(valor))
     .catch(errorHandler);

@@ -22,7 +22,7 @@ The `TrmApi` class provides five methods: [`latest()`](#latest), [`between(optio
 ```js
 const TrmApi = require('trm-api').default;
 
-const trmapi = new TrmApi();
+const trmApi = new TrmApi();
 ```
 
 ### ES6 Modules
@@ -30,7 +30,7 @@ const trmapi = new TrmApi();
 ```js
 import TrmApi from 'trm-api';
 
-const trmapi = new TrmApi();
+const trmApi = new TrmApi();
 ```
 
 ### TypeScript
@@ -50,7 +50,7 @@ With an app token, your application is guaranteed access to it's own pool of req
 You can pass your app token in the constructor:
 
 ```js
-const trmapi = new TrmApi('YOUR-APP-TOKEN-HERE');
+const trmApi = new TrmApi('YOUR-APP-TOKEN-HERE');
 ```
 
 ### Methods
@@ -66,7 +66,7 @@ const trmapi = new TrmApi('YOUR-APP-TOKEN-HERE');
 Provides the most recent quote:
 
 ```js
-trmapi
+trmApi
   .latest()
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
@@ -96,7 +96,7 @@ The `options` argument is an object with the following fields:
 | order?  | Optional | Can be `'ASC'` or `'DESC'`. Defaults to `'ASC'`.                     |
 
 ```js
-trmapi.trmapi
+trmApi.trmApi
   .between({ startAt: '2020-07-02', endAt: '2020-07-7', order: 'DESC' })
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
@@ -145,7 +145,7 @@ The `options` optional argument is an object with the following fields:
 | limit? | Optional | Maximum number of results to return. Defaults to 1,000. Maximum of 50,000. |
 
 ```js
-trmapi
+trmApi
   .history({ limit: 30 })
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
@@ -156,7 +156,7 @@ trmapi
 Returns the TRM for an specific date given in `YYYY-MM-DD` format.
 
 ```js
-trmapi
+trmApi
   .date('2020-08-10')
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
@@ -180,7 +180,7 @@ This method allows you to use any custom [`SoQL query`](https://dev.socrata.com/
 For example:
 
 ```js
-const data = await trmapi.query(
+const data = await trmApi.query(
   "SELECT valor, vigenciadesde WHERE valor >= 4150 AND vigenciadesde < '2020-08-01'"
 );
 ```
