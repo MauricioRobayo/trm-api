@@ -39,7 +39,7 @@ The module is written in TypeScript and type definitions files are included.
 
 ### App Token
 
-A limited number of requests can be made without an app token, but they are subject to much lower throttling limits than request that do include one.
+A limited number of requests can be made without an app token, but they are subject to much lower throttling limits than requests that do include one.
 
 With an app token, your application is guaranteed access to it's own pool of requests.
 
