@@ -48,9 +48,6 @@
     "*.ts": "eslint src --fix",
     "*.{js,ts,css,md}": "prettier --write"
   },
-  "prettier": {
-    "singleQuote": true
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MauricioRobayo/trm-api.git"

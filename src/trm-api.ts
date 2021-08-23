@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export interface TrmApiQuote {
   valor: string;
@@ -8,22 +8,22 @@ export interface TrmApiQuote {
 }
 
 class TrmApi {
-  private trmApiUrl = 'https://www.datos.gov.co/resource/32sa-8pi3.json';
+  private trmApiUrl = "https://www.datos.gov.co/resource/32sa-8pi3.json";
 
   private headers: Record<string, string> = {};
 
-  constructor(private appToken: string = '') {
-    if (appToken !== '') {
+  constructor(private appToken: string = "") {
+    if (appToken !== "") {
       this.headers = {
-        'X-App-Token': appToken,
+        "X-App-Token": appToken,
       };
     }
   }
 
   async latest(): Promise<TrmApiQuote> {
     const searchparams = new URLSearchParams({
-      $limit: '1',
-      $order: 'vigenciahasta DESC',
+      $limit: "1",
+      $order: "vigenciahasta DESC",
     });
     const { data } = await axios.get<TrmApiQuote[]>(
       `${this.trmApiUrl}?${searchparams}`,
@@ -35,11 +35,11 @@ class TrmApi {
   async between({
     startAt,
     endAt,
-    order = 'ASC',
+    order = "ASC",
   }: {
     startAt: string;
     endAt: string;
-    order?: 'ASC' | 'DESC';
+    order?: "ASC" | "DESC";
   }): Promise<TrmApiQuote[]> {
     const searchparams = new URLSearchParams({
       $where: `(vigenciadesde <= '${startAt}' AND vigenciahasta >= '${startAt}') OR (vigenciadesde >= '${startAt}' AND vigenciahasta <= '${endAt}') OR (vigenciadesde <= '${endAt}' AND vigenciahasta >= '${endAt}')`,
@@ -55,9 +55,9 @@ class TrmApi {
 
   async history({
     limit = 1000,
-    order = 'ASC',
+    order = "ASC",
   }: {
-    order?: 'ASC' | 'DESC';
+    order?: "ASC" | "DESC";
     limit?: number;
   } = {}): Promise<TrmApiQuote[]> {
     const searchparams = new URLSearchParams({
