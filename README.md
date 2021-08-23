@@ -20,7 +20,7 @@ The `TrmApi` class provides five methods: [`latest()`](#latest), [`between(optio
 ### CommonJS
 
 ```js
-const TrmApi = require('trm-api').default;
+const TrmApi = require("trm-api").default;
 
 const trmApi = new TrmApi();
 ```
@@ -28,7 +28,7 @@ const trmApi = new TrmApi();
 ### ES6 Modules
 
 ```js
-import TrmApi from 'trm-api';
+import TrmApi from "trm-api";
 
 const trmApi = new TrmApi();
 ```
@@ -50,7 +50,7 @@ With an app token, your application is guaranteed access to it's own pool of req
 You can pass your app token in the constructor:
 
 ```js
-const trmApi = new TrmApi('YOUR-APP-TOKEN-HERE');
+const trmApi = new TrmApi("YOUR-APP-TOKEN-HERE");
 ```
 
 ### Methods
@@ -97,7 +97,7 @@ The `options` argument is an object with the following fields:
 
 ```js
 trmApi
-  .between({ startAt: '2020-07-02', endAt: '2020-07-7', order: 'DESC' })
+  .between({ startAt: "2020-07-02", endAt: "2020-07-7", order: "DESC" })
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
 ```
@@ -107,28 +107,28 @@ Will return the following array:
 ```js
 [
   {
-    valor: '3633.32',
-    unidad: 'COP',
-    vigenciadesde: '2020-07-07T00:00:00.000',
-    vigenciahasta: '2020-07-07T00:00:00.000',
+    valor: "3633.32",
+    unidad: "COP",
+    vigenciadesde: "2020-07-07T00:00:00.000",
+    vigenciahasta: "2020-07-07T00:00:00.000",
   },
   {
-    valor: '3645.90',
-    unidad: 'COP',
-    vigenciadesde: '2020-07-04T00:00:00.000',
-    vigenciahasta: '2020-07-06T00:00:00.000',
+    valor: "3645.90",
+    unidad: "COP",
+    vigenciadesde: "2020-07-04T00:00:00.000",
+    vigenciahasta: "2020-07-06T00:00:00.000",
   },
   {
-    valor: '3660.18',
-    unidad: 'COP',
-    vigenciadesde: '2020-07-03T00:00:00.000',
-    vigenciahasta: '2020-07-03T00:00:00.000',
+    valor: "3660.18",
+    unidad: "COP",
+    vigenciadesde: "2020-07-03T00:00:00.000",
+    vigenciahasta: "2020-07-03T00:00:00.000",
   },
   {
-    valor: '3723.67',
-    unidad: 'COP',
-    vigenciadesde: '2020-07-02T00:00:00.000',
-    vigenciahasta: '2020-07-02T00:00:00.000',
+    valor: "3723.67",
+    unidad: "COP",
+    vigenciadesde: "2020-07-02T00:00:00.000",
+    vigenciahasta: "2020-07-02T00:00:00.000",
   },
 ];
 ```
@@ -157,7 +157,7 @@ Returns the TRM for an specific date given in `YYYY-MM-DD` format.
 
 ```js
 trmApi
-  .date('2020-08-09')
+  .date("2020-08-09")
   .then((data) => console.log(data))
   .catch((error) => console.log(error));
 ```
@@ -193,8 +193,8 @@ It will return an array of objects each with the requested fields (or all the fi
 ```js
 [
   {
-    valor: '4153.91',
-    vigenciadesde: '2020-03-20T00:00:00.000',
+    valor: "4153.91",
+    vigenciadesde: "2020-03-20T00:00:00.000",
   },
 ];
 ```

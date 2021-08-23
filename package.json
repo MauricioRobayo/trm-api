@@ -7,7 +7,7 @@
     "trm-api": "bin/trm-api"
   },
   "scripts": {
-    "lint": "eslint . --cache --ext .ts --fix",
+    "lint": "eslint src --fix",
     "build": "tsc",
     "test": "jest --coverage",
     "postinstall": "git config core.hooksPath .githooks || true",
@@ -31,13 +31,10 @@
     "@commitlint/config-conventional": "^13.1.0",
     "@types/jest": "^27.0.0",
     "@types/node": "^16.3.2",
-    "@typescript-eslint/eslint-plugin": "^4.28.3",
-    "@typescript-eslint/parser": "^4.28.3",
-    "eslint": "^7.30.0",
-    "eslint-config-airbnb-typescript": "^12.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jest": "^24.3.6",
     "jest": "^27.0.6",
     "lint-staged": "^11.0.1",
     "prettier": "^2.3.2",
@@ -48,11 +45,8 @@
     "axios": "^0.21.1"
   },
   "lint-staged": {
-    "*.ts": "eslint --cache --fix",
+    "*.ts": "eslint --fix",
     "*.{js,ts,css,md}": "prettier --write"
-  },
-  "prettier": {
-    "singleQuote": true
   },
   "repository": {
     "type": "git",
