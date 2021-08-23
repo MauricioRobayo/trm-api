@@ -21,12 +21,12 @@ class TrmApi {
   }
 
   async latest(): Promise<TrmApiQuote> {
-    const searchparams = new URLSearchParams({
+    const searchParams = new URLSearchParams({
       $limit: "1",
       $order: "vigenciahasta DESC",
     });
     const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?${searchparams}`,
+      `${this.trmApiUrl}?${searchParams}`,
       { headers: this.headers }
     );
     return data[0];
@@ -41,13 +41,13 @@ class TrmApi {
     endAt: string;
     order?: "ASC" | "DESC";
   }): Promise<TrmApiQuote[]> {
-    const searchparams = new URLSearchParams({
+    const searchParams = new URLSearchParams({
       $where: `(vigenciadesde <= '${startAt}' AND vigenciahasta >= '${startAt}') OR (vigenciadesde >= '${startAt}' AND vigenciahasta <= '${endAt}') OR (vigenciadesde <= '${endAt}' AND vigenciahasta >= '${endAt}')`,
       $order: `vigenciadesde ${order}`,
     });
 
     const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?${searchparams}`,
+      `${this.trmApiUrl}?${searchParams}`,
       { headers: this.headers }
     );
     return data;
@@ -60,13 +60,13 @@ class TrmApi {
     order?: "ASC" | "DESC";
     limit?: number;
   } = {}): Promise<TrmApiQuote[]> {
-    const searchparams = new URLSearchParams({
+    const searchParams = new URLSearchParams({
       $limit: String(limit),
       $order: `vigenciadesde ${order}`,
     });
 
     const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?${searchparams}`,
+      `${this.trmApiUrl}?${searchParams}`,
       { headers: this.headers }
     );
     return data;
@@ -78,12 +78,12 @@ class TrmApi {
   }
 
   async query(query: string): Promise<TrmApiQuote[]> {
-    const searchparams = new URLSearchParams({
+    const searchParams = new URLSearchParams({
       $query: query,
     });
 
     const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?${searchparams}`,
+      `${this.trmApiUrl}?${searchParams}`,
       { headers: this.headers }
     );
     return data;
