@@ -12,7 +12,7 @@ class TrmApi {
 
   private headers: Record<string, string> = {};
 
-  constructor(private appToken: string = "") {
+  constructor(appToken = "") {
     if (appToken !== "") {
       this.headers = {
         "X-App-Token": appToken,
