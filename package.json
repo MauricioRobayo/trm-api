@@ -45,7 +45,7 @@
     "axios": "^0.21.1"
   },
   "lint-staged": {
-    "*.ts": "eslint src --fix",
+    "*.ts": "eslint --fix",
     "*.{js,ts,css,md}": "prettier --write"
   },
   "repository": {
