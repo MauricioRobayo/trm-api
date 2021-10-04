@@ -34,7 +34,7 @@ const mockData = [
   },
 ];
 
-const axiosResponse: AxiosResponse = {
+const axiosResponse: AxiosResponse<typeof mockData> = {
   data: mockData,
   status: 200,
   statusText: "OK",
