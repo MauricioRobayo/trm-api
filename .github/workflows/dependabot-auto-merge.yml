@@ -6,4 +6,4 @@ jobs:
     permissions:
       pull-requests: write
       contents: write
-    uses: MauricioRobayo/workflows/.github/dependabot-auto-merge.yml@main
+    uses: MauricioRobayo/workflows/.github/workflows/dependabot-auto-merge.yml@main
