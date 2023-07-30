@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import TrmApi from "./trm-api";
 
 const mockData = [
@@ -34,12 +34,10 @@ const mockData = [
   },
 ];
 
-const axiosResponse: AxiosResponse<typeof mockData> = {
+const axiosResponse = {
   data: mockData,
   status: 200,
   statusText: "OK",
-  config: {},
-  headers: {},
 };
 
 const mockAxiosGet = jest.spyOn(axios, "get").mockResolvedValue(axiosResponse);
