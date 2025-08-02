@@ -12,7 +12,7 @@
     "build": "tsup src/trm-api.ts --dts --format esm,cjs --out-dir dist",
     "test": "vitest run",
     "format": "prettier --write \"src/**/*.{js,ts,json,md}\"",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
   },
   "keywords": [
     "tasa de cambio representativa del mercado",
