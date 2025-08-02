@@ -1,6 +1,6 @@
 {
   "name": "trm-api",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "A wrapper to simplify GET requests and JSON response parsing from the Tasa Representativa del Mercado API",
   "main": "dist/trm-api.js",
   "bin": {
