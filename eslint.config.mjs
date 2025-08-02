@@ -16,10 +16,11 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
+  { files: ["src/**/*.ts"] },
   {
     extends: compat.extends(
       "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended"
     ),
 
     plugins: {
