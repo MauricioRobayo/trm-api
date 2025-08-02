@@ -1,6 +1,6 @@
 {
   "name": "trm-api",
-  "version": "1.0.0-semantic-release",
+  "version": "1.5.0",
   "description": "A wrapper to simplify GET requests and JSON response parsing from the Tasa Representativa del Mercado API",
   "main": "dist/trm-api.js",
   "bin": {
@@ -10,7 +10,8 @@
     "lint": "eslint src --fix",
     "build": "tsc",
     "test": "jest --coverage",
-    "format": "prettier --write \"src/**/*.{js,ts,json,md}\""
+    "format": "prettier --write \"src/**/*.{js,ts,json,md}\"",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "tasa de cambio representativa del mercado",
