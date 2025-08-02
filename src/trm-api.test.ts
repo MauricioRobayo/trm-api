@@ -1,5 +1,5 @@
 import TrmApi from "./trm-api";
-import { jest, afterEach, it, expect } from "@jest/globals";
+import { afterEach, it, expect, vi } from "vitest";
 
 const mockData = [
   {
@@ -41,11 +41,11 @@ const createFetchResponse = (data: unknown, status = 200) =>
   });
 
 afterEach(() => {
-  jest.restoreAllMocks();
+  vi.restoreAllMocks();
 });
 
 it("should call the API to get the latest data", async () => {
-  const fetchMock = jest
+  const fetchMock = vi
     .spyOn(global, "fetch")
     .mockResolvedValue(createFetchResponse(mockData));
   const trmApi = new TrmApi();
@@ -63,7 +63,7 @@ it("should call the API to get the latest data", async () => {
 });
 
 it("should call the API to get the data between two dates sorted ASC by default", async () => {
-  const fetchMock = jest
+  const fetchMock = vi
     .spyOn(global, "fetch")
     .mockResolvedValue(createFetchResponse(mockData));
   const trmApi = new TrmApi();
@@ -81,7 +81,7 @@ it("should call the API to get the data between two dates sorted ASC by default"
 });
 
 it("should call the API to get the data between two dates sorted DESC", async () => {
-  const fetchMock = jest
+  const fetchMock = vi
     .spyOn(global, "fetch")
     .mockResolvedValue(createFetchResponse(mockData));
   const trmApi = new TrmApi();
@@ -98,7 +98,7 @@ it("should call the API to get the data between two dates sorted DESC", async ()
 });
 
 it("should call the API to get the historic data limited to 1000 and sorted ASC by default (DESC order)", async () => {
-  const fetchMock = jest
+  const fetchMock = vi
     .spyOn(global, "fetch")
     .mockResolvedValue(createFetchResponse(mockData));
   const trmApi = new TrmApi();
@@ -111,7 +111,7 @@ it("should call the API to get the historic data limited to 1000 and sorted ASC 
 });
 
 it("should call the API to get the historic data limited to 1000 and sorted ASC by default", async () => {
-  const fetchMock = jest
+  const fetchMock = vi
     .spyOn(global, "fetch")
     .mockResolvedValue(createFetchResponse(mockData));
   const trmApi = new TrmApi();
@@ -124,7 +124,7 @@ it("should call the API to get the historic data limited to 1000 and sorted ASC 
 });
 
 it("should call the API for a given date", async () => {
-  const fetchMock = jest
+  const fetchMock = vi
     .spyOn(global, "fetch")
     .mockResolvedValue(createFetchResponse(mockData));
   const trmApi = new TrmApi();
@@ -144,7 +144,7 @@ it("should call the API for a given date", async () => {
 });
 
 it("should call the API with a given query", async () => {
-  const fetchMock = jest
+  const fetchMock = vi
     .spyOn(global, "fetch")
     .mockResolvedValue(createFetchResponse(mockData));
   const trmApi = new TrmApi();
@@ -161,7 +161,7 @@ it("should call the API with a given query", async () => {
 });
 
 it("should call the API with an app token", async () => {
-  const fetchMock = jest
+  const fetchMock = vi
     .spyOn(global, "fetch")
     .mockResolvedValue(createFetchResponse(mockData));
   const trmApi = new TrmApi("1234");

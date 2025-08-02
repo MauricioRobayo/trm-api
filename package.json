@@ -8,8 +8,8 @@
   },
   "scripts": {
     "lint": "eslint src --fix",
-    "build": "tsc",
-    "test": "jest --coverage",
+    "build": "tsup src/trm-api.ts --dts --format esm,cjs --out-dir dist",
+    "test": "vitest run",
     "format": "prettier --write \"src/**/*.{js,ts,json,md}\"",
     "prepublishOnly": "npm run build"
   },
@@ -27,23 +27,13 @@
   "author": "Mauricio Robayo <rfmajo@gmail.com> (https://www.mauriciorobayo.com/)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.28.0",
-    "@babel/preset-env": "^7.28.0",
-    "@babel/preset-typescript": "^7.27.1",
     "@eslint/js": "^9.32.0",
-    "@jest/globals": "^30.0.5",
-    "@types/node": "^24.1.0",
-    "@typescript-eslint/eslint-plugin": "^8.38.0",
-    "@typescript-eslint/parser": "^8.38.0",
-    "babel-jest": "^30.0.5",
     "eslint": "^9.32.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jest": "^29.0.1",
-    "eslint-plugin-prettier": "^5.5.3",
-    "jest": "^30.0.5",
     "prettier": "^3.6.2",
+    "tsup": "^8.5.0",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.38.0"
+    "typescript-eslint": "^8.38.0",
+    "vitest": "^3.2.4"
   },
   "repository": {
     "type": "git",
