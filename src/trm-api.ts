@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export interface TrmApiQuote {
   valor: string;
   unidad: string;
@@ -22,10 +20,11 @@ class TrmApi {
       $limit: "1",
       $order: "vigenciahasta DESC",
     });
-    const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?${searchParams}`,
-      { headers: this.headers }
-    );
+    const response = await fetch(`${this.trmApiUrl}?${searchParams}`, {
+      headers: this.headers,
+    });
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const data: TrmApiQuote[] = await response.json();
     return data[0];
   }
 
@@ -43,10 +42,11 @@ class TrmApi {
       $order: `vigenciadesde ${order}`,
     });
 
-    const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?${searchParams}`,
-      { headers: this.headers }
-    );
+    const response = await fetch(`${this.trmApiUrl}?${searchParams}`, {
+      headers: this.headers,
+    });
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const data: TrmApiQuote[] = await response.json();
     return data;
   }
 
@@ -62,10 +62,11 @@ class TrmApi {
       $order: `vigenciadesde ${order}`,
     });
 
-    const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?${searchParams}`,
-      { headers: this.headers }
-    );
+    const response = await fetch(`${this.trmApiUrl}?${searchParams}`, {
+      headers: this.headers,
+    });
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const data: TrmApiQuote[] = await response.json();
     return data;
   }
 
@@ -79,10 +80,11 @@ class TrmApi {
       $query: query,
     });
 
-    const { data } = await axios.get<TrmApiQuote[]>(
-      `${this.trmApiUrl}?${searchParams}`,
-      { headers: this.headers }
-    );
+    const response = await fetch(`${this.trmApiUrl}?${searchParams}`, {
+      headers: this.headers,
+    });
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const data: TrmApiQuote[] = await response.json();
     return data;
   }
 }
