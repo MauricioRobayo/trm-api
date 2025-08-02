@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "eslint src --fix",
     "build": "tsc",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "format": "prettier --write \"src/**/*.{js,ts,json,md}\""
   },
   "keywords": [
     "tasa de cambio representativa del mercado",
