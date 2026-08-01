@@ -8,10 +8,9 @@
     "trm-api": "bin/trm-api"
   },
   "scripts": {
-    "lint": "biome lint --write",
+    "check": "biome check --write",
     "build": "tsup src/trm-api.ts --dts --format esm,cjs --out-dir dist",
     "test": "vitest run",
-    "format": "biome format --write",
     "prepublishOnly": "biome check && npm test && npm run build"
   },
   "keywords": [
